@@ -1,6 +1,7 @@
 import React, { useState, useEffect,useRef } from 'react';
 import './App.css';
 import io from 'socket.io-client';
+import  QRCodeStyling from "qr-code-styling";
 
 const socket = io('http://localhost:8080');
 
@@ -8,6 +9,8 @@ function App() {
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [lastMessage, setLastMessage] = useState(null);
   const ref = useRef()
+
+
 
   useEffect(() => {
     socket.on('connect', () => {
@@ -29,6 +32,28 @@ function App() {
       
       console.log(data);
     });
+
+
+    const qrCode = new QRCodeStyling({
+      width: 300,
+      height: 300,
+      type: "svg",
+      data:"{'hola':'hola'}",
+      image: "https://pbs.twimg.com/profile_images/1356260647642796035/qPlwhss9_400x400.jpg",
+      dotsOptions: {
+          color: "#fffff",
+          type: "dots",
+          mode:"Byte"
+      },
+      backgroundOptions: {
+          color: "#e9ebee",
+      },
+      imageOptions: {
+          crossOrigin: "anonymous",
+          margin: 20
+      }
+  });
+    qrCode.append(document.getElementById("canvas"))
     return () => {
       socket.off('connect');
       socket.off('disconnect');
@@ -49,6 +74,7 @@ const sendMessage = () => {
   return (
     <div className="App">
       <header className="App-header">
+      <div id="canvas"></div>
         <p>Connected: { '' + isConnected }</p>
         <p>Last message: { lastMessage || '-' }</p>
         <button onClick={ sendMessage }>Say hello!</button>
