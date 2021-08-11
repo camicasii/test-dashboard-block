@@ -1,17 +1,29 @@
-import React, { useState, useEffect,useRef } from 'react';
-import './App.css';
-function App() {  
-  const [lastMessage, setLastMessage] = useState(null);
-  const ref = useRef()
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import './css/style.scss';
+import Home from './pages/Home';
+
+
+function App() {
+
+
+
+ 
+
   return (
-    <div className="App">
-      <header className="App-header">
-      <div id="canvas"></div>
-        <p>Connected: { ''  }</p>
-        <p>Last message: { lastMessage || '-' }</p>  
-      </header>
-      <input  ref={ref}/>
-    </div>
+    <>
+      <Router>
+        <Switch>
+        <Route exact path="/" component={Home}>
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+    </>
   );
 }
 
