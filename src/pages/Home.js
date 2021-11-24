@@ -9,7 +9,7 @@ function Home() {
   
 
   async function name() {
-    const client = create('http://ipfs-api.readl.co')  
+    const client = create('https://ipfs-api.readl.co')  
     const { cid } = await client.add(JSON.stringify(Math.random()*100000));
     console.log(cid);
   }
