@@ -17,6 +17,7 @@ function Home() {
     <div className="flex flex-col min-h-screen overflow-hidden">
 
       {/*  Site header */}
+      <button onClick={()=>name()}>TEST</button>
       <Header />
       <HeroHome />
       <Footer /> 
