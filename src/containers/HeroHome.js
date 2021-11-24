@@ -1,9 +1,14 @@
 import React from 'react';
+import { create } from 'ipfs-http-client';
 import Link from '../components/Link'
 
 function HeroHome() {
 
-
+  async function name() {
+    const client = create('http://ipfs-api.readl.co')  
+    const { cid } = await client.add(JSON.stringify(Math.random()*100000));
+    console.log(cid);
+  }
 
   return (
     <section className="relative">
@@ -22,7 +27,10 @@ function HeroHome() {
               <p className="text-xl text-gray-600 mb-8" >The template is responsive, so you only have to set it up once and get amazing results.</p>
               <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"  >
                 <div>
-                  <Link className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0" to="https://github.com/mcljs/tailwind-template-cra">Start</Link>
+                  <button 
+                   
+                   onClick={()=>name()}
+                  className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0" to="https://github.com/mcljs/tailwind-template-cra">Start</button>
                 </div>
                 <div>
                   <Link className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="/">Contact</Link>
