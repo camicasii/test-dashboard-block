@@ -5,8 +5,14 @@ import Link from '../components/Link'
 function HeroHome() {
 
   async function name() {
-    const client = create('http://ipfs-api.readl.co')  
-    const { cid } = await client.add(JSON.stringify(Math.random()*100000));
+    const client = create(      
+      {
+        host: 'http://ipfs-api.readl.co',
+        port: 80,
+        protocol: 'https'              
+      })  
+    const { cid } = await client.add(JSON.stringify('asdfasdfasdfasdfasdfasdf'));
+    console.log('paso');
     console.log(cid);
   }
 
