@@ -10,7 +10,7 @@ jobs:
         with:
           node-version: "14"
       - name: Maven Package
-        run: node -v
+        run: yarn -v
 #      - name: Maven Verify
 #        run: npm run build
 #  docker:
