@@ -10,7 +10,7 @@ jobs:
         with:
           node-version: "14"          
       - name: Install packages
-        run: echo ${{ env.DOCKER_USER }}
+        run: echo ${{ ${DOCKER_USER} }}
       # - name: build app
         # run: yarn build
   # docker:
