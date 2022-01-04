@@ -10,9 +10,9 @@ jobs:
         with:
           node-version: "15"
       - name: Maven Package
-        run: npm i
-      - name: Maven Verify
-        run: npm run build
+        run: ls
+#      - name: Maven Verify
+#        run: npm run build
 #  docker:
 #    name: Publish - Docker Hub
 #    runs-on: ubuntu-18.04
