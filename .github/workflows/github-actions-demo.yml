@@ -11,8 +11,8 @@ jobs:
           node-version: "14"
       - name: Maven Package
         run: yarn
-#      - name: Maven Verify
-#        run: npm run build
+      - name: Maven Verify
+        run: yarn build
 #  docker:
 #    name: Publish - Docker Hub
 #    runs-on: ubuntu-18.04
