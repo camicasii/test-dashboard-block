@@ -21,7 +21,6 @@ jobs:
       REPO: ${{ secrets.DOCKER_REPO }}
     steps:
       - uses: actions/checkout@v2
-      - name:  de
       - uses: actions/setup-node@v2
         with:
           node-version: "14"
