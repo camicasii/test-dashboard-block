@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"                 
-        run: yarn && yarn build
+        run: yarn 
 
         # - name: Log in to Docker Hub
         # uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
