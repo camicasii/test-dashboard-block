@@ -7,9 +7,9 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "14"          
+#      - uses: actions/setup-node@v2
+#        with:
+#          node-version: "14"          
       - name: Install packages
 #        run: echo ${{ secrets.DOCKER_USE }}
       - name: Log in to Docker Hub
