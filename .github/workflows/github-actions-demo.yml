@@ -13,15 +13,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"                 
-        run: yarn
-      - name: build app
-        run: yarn build
-#        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }}
-      # - name: build app
-        # run: yarn build
-
-
-       
+          run: yarn  && yarn build         
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
