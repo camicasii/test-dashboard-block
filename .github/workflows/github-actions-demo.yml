@@ -8,26 +8,27 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "14"          
       - name: Install packages
-        run: yarn
-      - name: build app
-        run: yarn build
-  docker:
-    name: Publish - Docker Hub
-    runs-on: ubuntu-18.04
-    needs: [test]
-    env:
-      REPO: ${{ secrets.DOCKER_REPO }}
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "14"
-      - name: Install packages
-        run: docker login -u ${{ secrets.DOCKER_USER }}
-            -p ${{ secrets.DOCKER_PASS }}
-      - name: Build Docker image
-        run: docker build -t $REPO:latest -t $REPO:${GITHUB_SHA::8} .
-      - name: Publish Docker image
-        run: docker push $REPO
+        run: echo ${{ secrets.DOCKER_USER }}
+      # - name: build app
+        # run: yarn build
+  # docker:
+    # name: Publish - Docker Hub
+    # runs-on: ubuntu-18.04
+    # needs: [test]
+    # env:
+      # REPO: ${{ secrets.DOCKER_REPO }}
+    # steps:
+      # - uses: actions/checkout@v2
+      # - uses: actions/setup-node@v2
+        # with:
+          # node-version: "14"
+      # - name: Install packages
+        # run: docker login -u ${{ secrets.DOCKER_USER }}
+            # -p ${{ secrets.DOCKER_PASS }}
+      # - name: Build Docker image
+        # run: docker build -t $REPO:latest -t $REPO:${GITHUB_SHA::8} .
+      # - name: Publish Docker image
+        # run: docker push $REPO
+# 
