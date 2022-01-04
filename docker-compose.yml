@@ -1,0 +1,11 @@
+
+version: "3.4"
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d   
+      - ./build:/var/www/html  
+    ports:
+      - "8080:80"   
+    
