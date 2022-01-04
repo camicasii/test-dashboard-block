@@ -10,7 +10,7 @@ jobs:
         with:
           node-version: "14"          
       - name: Install packages
-        run: echo ${{ DOCKER_USE }}
+        run: echo ${{ secrets.DOCKER_USE }}
       # - name: build app
         # run: yarn build
   # docker:
